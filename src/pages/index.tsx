@@ -6,7 +6,7 @@ import { auth } from "~/src/lib/firebase";
 
 const IndexPage: SFC = () => {
   return (
-      <Layout title="本貯蔵アプリ">
+      <Layout>
           <div className="mx-20 my-10">
               <div className="">
                   <label htmlFor="">
