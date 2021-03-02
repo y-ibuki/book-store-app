@@ -1,21 +1,37 @@
 import Layout from "../components/Layout";
-import { Login, Logout, auth } from "~/src/lib/firebase";
+import LoginPage from '../components/Login'
+import BookIndex from '../components/BookIndex'
+import React, { SFC } from "react";
+import { auth } from "~/src/lib/firebase";
 
-const IndexPage = () => {
+const IndexPage: SFC = () => {
   return (
       <Layout title="本貯蔵アプリ">
-        <h1>本貯蔵アプリ</h1>
-        <div>
-          <button onClick={() => Login()}>ログイン</button>
-          <button onClick={() => Logout()}>ログアウト</button>
-        </div>
-        <div>
-          <pre>
-            {auth.currentUser
-              ? auth.currentUser.displayName + "でログインしています"
-              : "ログインしていません"}
-          </pre>
-        </div>
+          <div className="mx-20 my-10">
+              <div className="">
+                  <label htmlFor="">
+                      <input type="text" className="border rounded"/>
+                  </label>
+                  <label htmlFor="">
+                      <input type="text" className="border rounded"/>
+                  </label>
+                  <label htmlFor="">
+                      <input type="text" className="border rounded"/>
+                  </label>
+              </div>
+              <div>
+                  {
+                      auth.currentUser
+                      ?
+                      <BookIndex
+                          name={auth.currentUser.displayName}
+                          uid={auth.currentUser.uid}
+                      ></BookIndex>
+                      :
+                      <LoginPage></LoginPage>
+                  }
+              </div>
+          </div>
       </Layout>
   )
 };
