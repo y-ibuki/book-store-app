@@ -1,4 +1,4 @@
-import { Firebase } from "../config/firebase";
+import firebase from "firebase/app";
 import 'firebase/firestore';
 
 /**
@@ -14,7 +14,7 @@ import 'firebase/firestore';
  * @constructor
  */
 export const GetUser = async (userId: string) => {
-    const db = await Firebase.firestore()
+    const db = await firebase.firestore()
     const collection = await db.collection('users').where('name', "==", userId).get()
     const data = collection.docs[0].data()
     return data;
