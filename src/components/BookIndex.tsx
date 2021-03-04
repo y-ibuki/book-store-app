@@ -1,7 +1,7 @@
 import React, { ReactNode, SFC } from "react";
 import Link from "next/link";
 import BookList from "~/src/components/BookList/BookList";
-import { auth } from "~/src/lib/firebase";
+import { auth } from "../../config/firebase";
 import {log} from "util";
 
 type TProps = {

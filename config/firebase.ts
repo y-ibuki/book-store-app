@@ -1,6 +1,6 @@
 import firebase from "firebase/app";
 import "firebase/auth"; // If you need it
-import { config } from "../../config/firebase"
+import { config } from "./firebaseConfig"
 
 export const firebaseConfig = config
 

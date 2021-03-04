@@ -1,22 +1,18 @@
 import React from 'react'
-import styled from 'styled-components'
-import { Login, Logout, auth } from "~/src/lib/firebase";
-
-const HeaderWrap = styled.header`
-`
+import { Login, Logout, firebaseUser } from "../../../config/firebase";
 
 const Header = () => {
     return (
-        <HeaderWrap className="text-2xl p-3 bg-gray-100">
+        <header className="text-2xl p-3 bg-gray-100">
             <div className="flex justify-between">
                 Book Store App
                 <div className="buttonWrapper">
                     {
-                        auth.currentUser ?
+                        firebaseUser() ?
                             <div className="flex items-center">
                                 <span className="text-sm mr-3">
                                     <div>ログインユーザー:</div>
-                                    { auth.currentUser.displayName }
+                                    { firebaseUser().displayName }
                                 </span>
                                 <button
                                     onClick={() => Logout()}
@@ -35,7 +31,7 @@ const Header = () => {
                     }
                 </div>
             </div>
-        </HeaderWrap>
+        </header>
     )
 }
 

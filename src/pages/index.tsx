@@ -2,7 +2,7 @@ import Layout from "../components/Layout";
 import LoginPage from '../components/Login'
 import BookIndex from '../components/BookIndex'
 import React, { SFC } from "react";
-import { auth } from "~/src/lib/firebase";
+import { auth } from "../../config/firebase";
 
 const IndexPage: SFC = () => {
   return (

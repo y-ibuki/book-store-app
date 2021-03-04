@@ -4,7 +4,7 @@ import { AppProps } from "next/app";
 
 import AuthContext from "~/src/lib/AuthContext";
 import authReducer from "~/src/lib/authReducer";
-import { listenAuthState } from "~/src/lib/firebase";
+import { listenAuthState } from "../../config/firebase";
 
 import "../../assets/styles/globals.scss"
 

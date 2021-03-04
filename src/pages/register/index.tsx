@@ -1,14 +1,15 @@
-import React from 'react'
-// import ReactDom from 'react-dom'
+import React, { useContext } from 'react'
+import Layout from "~/src/components/Layout";
+import { GetUser } from '../../../db/user';
 
 export interface IRegisterProps {}
 
 const Register: React.SFC<IRegisterProps> = () => {
-  return (
-    <div>
-      register
-    </div>
-  )
+    const user = GetUser(1)
+    return (
+        <Layout>
+        </Layout>
+    )
 };
 
 export default Register;
