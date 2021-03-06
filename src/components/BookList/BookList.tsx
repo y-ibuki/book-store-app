@@ -2,48 +2,30 @@ import React from "react";
 import Link from "next/link";
 
 type TProps = {
-    name: string,
+    title: string,
     author: string,
     date: string,
     price: number,
     place: string,
-    url: string,
-    remarks: string
+    url: string
 };
 
 const BookList: React.FC<TProps> = ({
-    name,
+    title,
     author,
     date,
     price,
     place,
     url,
-    remarks,
 }) =>  {
     return (
-        <li className="w-2/5">
-            <a
-                href={url}
-                className="
-                    block
-                    duration-150
-                    transform shadow-2xl
-                    p-8
-                    hover:opacity
-                    hover:scale-110
-                    mt-5
-                    h-44
-                    "
-            >
-                <div className="flex1">
-                    <p className="text-lg">
-                        {name}
-                        <span className="text-gray-500 text-xs ml-5">著者: {author} </span>
-                    </p>
-                    <p className="mt-4 line-clamp-3">
-                        備考: { remarks }
-                    </p>
-                </div>
+        <li className="w-full">
+            <a href={url} className="p-2 flex hover:bg-yellow-200 hover:bg-opacity-20 duration-200">
+                <p className="text-lg w-1/5 line-clamp-1">{title}</p>
+                <p className="text-lg w-1/5 line-clamp-1">{author}</p>
+                <p className="text-lg w-1/5 line-clamp-1">{date}</p>
+                <p className="text-lg w-1/5 line-clamp-1">{price}</p>
+                <p className="text-lg w-1/5 line-clamp-1">{place}</p>
             </a>
         </li>
     )
