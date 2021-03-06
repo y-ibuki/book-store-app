@@ -16,5 +16,4 @@ export const AddBook = async (props) => {
             remarks: props.remarks
         })
     } catch(e) {}
-    return bookRef
 }
