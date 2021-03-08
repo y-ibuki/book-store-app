@@ -1,7 +1,6 @@
 import React, {useEffect, useState} from "react";
 import BookList from "~/src/components/BookList/BookList";
 import { GetIndexBooks } from '../../db/book'
-import {loadGetInitialProps} from "next/dist/next-server/lib/utils";
 
 type TProps = {
   uid: string;
