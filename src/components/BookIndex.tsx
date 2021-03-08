@@ -1,5 +1,7 @@
-import React, { ReactNode, SFC } from "react";
+import React, {useEffect, useState} from "react";
 import BookList from "~/src/components/BookList/BookList";
+import { GetIndexBooks } from '../../db/book'
+import {loadGetInitialProps} from "next/dist/next-server/lib/utils";
 
 type TProps = {
   uid: string;
@@ -15,6 +17,19 @@ const test = [
 ]
 
 const BookIndex = (props: TProps) => {
+    const [ books, setBooks ] = useState([])
+
+    useEffect( () => {
+        const f = async () => {
+            const payload = await GetIndexBooks()
+            return payload
+        };
+        const indexBooks = f()
+        indexBooks.then( i => {
+            setBooks(i.docs)
+        })
+    }, [])
+
     return (
         <ul className="flex flex-wrap justify-between">
             <li className="w-full">
@@ -27,7 +42,8 @@ const BookIndex = (props: TProps) => {
                 </div>
             </li>
             {
-                test.map( (item,index) => {
+                books.map( (book, index) => {
+                    const item = book.data()
                     return (
                         <BookList
                             key={index}

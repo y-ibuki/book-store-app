@@ -1,6 +1,12 @@
 import firebase from "firebase/app";
 import 'firebase/firestore';
 
+export const GetIndexBooks = async () => {
+    const db = await firebase.firestore()
+    const books = await db.collection('books').get()
+    return books
+}
+
 export const AddBook = async (props) => {
     const db = await firebase.firestore()
     const bookRef = await db.collection('books')
