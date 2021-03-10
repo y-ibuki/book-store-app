@@ -7,6 +7,13 @@ export const GetIndexBooks = async () => {
     return books
 }
 
+export const getBook = async (id: string) => {
+    const db = await firebase.firestore()
+    const collection = await db.collection('books').doc(id)
+    const book = await collection
+    return book
+}
+
 export const AddBook = async (props) => {
     const db = await firebase.firestore()
     const bookRef = await db.collection('books')
