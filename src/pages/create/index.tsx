@@ -24,7 +24,6 @@ const Register = () => {
             date: getValue('date'),
             price: getValue('price'),
             place: getValue('place'),
-            url: getValue('url'),
             remarks: getTextarea('remarks')
         }
         AddBook(data)
@@ -39,7 +38,6 @@ const Register = () => {
                 <Input id="date" title="出版日" type="date" />
                 <Input id="price" title="値段" type="text" />
                 <Input id="place" title="場所" type="text" />
-                <Input id="url" title="URL" type="text" />
                 <Input id="remarks" title="備考" type="textarea" />
                 <div className="pt-3">
                     <button onClick={onRegister} className="bg-green-100 hover:bg-opacity-60 rounded px-4 py-2">登録</button>

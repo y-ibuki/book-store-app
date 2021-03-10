@@ -46,10 +46,10 @@ const BookIndex = (props: TProps) => {
                     return (
                         <BookList
                             key={index}
+                            id={book.id}
                             title={item.title}
                             author={item.author}
                             date={item.date}
-                            url={item.url}
                             price={item.price}
                             place={item.place}
                         />

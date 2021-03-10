@@ -1,4 +1,5 @@
 import React from "react";
+import Link from 'next/Link'
 
 type TProps = {
     title: string,
@@ -6,7 +7,7 @@ type TProps = {
     date: string,
     price: number,
     place: string,
-    url: string
+    id: number
 };
 
 const BookList: React.FC<TProps> = ({
@@ -15,17 +16,19 @@ const BookList: React.FC<TProps> = ({
     date,
     price,
     place,
-    url,
+    id
 }) =>  {
     return (
         <li className="w-full">
-            <a href={url} className="p-2 flex hover:bg-yellow-200 hover:bg-opacity-20 duration-200">
-                <p className="text-lg w-1/5 line-clamp-1">{title}</p>
-                <p className="text-lg w-1/5 line-clamp-1">{author}</p>
-                <p className="text-lg w-1/5 line-clamp-1">{date}</p>
-                <p className="text-lg w-1/5 line-clamp-1">{price}</p>
-                <p className="text-lg w-1/5 line-clamp-1">{place}</p>
-            </a>
+            <Link href={`/show/${id}`} >
+                <a className="p-2 flex hover:bg-yellow-200 hover:bg-opacity-20 duration-200">
+                    <p className="text-lg w-1/5 line-clamp-1">{title}</p>
+                    <p className="text-lg w-1/5 line-clamp-1">{author}</p>
+                    <p className="text-lg w-1/5 line-clamp-1">{date}</p>
+                    <p className="text-lg w-1/5 line-clamp-1">{price}</p>
+                    <p className="text-lg w-1/5 line-clamp-1">{place}</p>
+                </a>
+            </Link>
         </li>
     )
 }
