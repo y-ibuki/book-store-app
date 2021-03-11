@@ -9,9 +9,9 @@ export const GetIndexBooks = async () => {
 
 export const getBook = async (id: string) => {
     const db = await firebase.firestore()
-    const collection = await db.collection('books').doc(id)
-    const book = await collection
-    return book
+    const collection = await db.collection('books').get()
+    const bookDocs = await collection
+    return bookDocs
 }
 
 export const AddBook = async (props) => {
