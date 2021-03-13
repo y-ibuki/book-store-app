@@ -1,7 +1,6 @@
-import React, {PropsWithChildren, useCallback, useEffect, useState} from 'react'
+import React, { useEffect, useState} from 'react'
 import { useRouter } from "next/router";
 import Layout from "~/src/components/Layout"
-import { withRouter } from 'next/router'
 import { getBook } from '../../../db/book'
 
 type TProps = {
