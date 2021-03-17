@@ -3,16 +3,24 @@ import LoginPage from '../components/Login'
 import BookIndex from '../components/BookIndex'
 import React, {SFC, useCallback, useRef, useState, useEffect} from "react";
 import { auth } from "../../config/firebase";
+import { GetIndexBooks } from "~/db/book";
 
 const IndexPage: SFC = () => {
-  const [title, setTitle] = useState('')
-  const [author, setAuthor] = useState('')
-  const [price, setPrice] = useState('')
-  const [publishStart, setPublishStart] = useState('')
-  const [publishEnd, setPublishEnd] = useState('')
+  const [title, setTitle] = useState<string>('')
+  const [author, setAuthor] = useState<string>('')
+  const [price, setPrice] = useState<string>('')
+  const [publishStart, setPublishStart] = useState<string>('')
+  const [publishEnd, setPublishEnd] = useState<string>('')
 
-  const onClick = (e) => {
-      // firebaseに情報を取りに行く
+  const onClick = async (e) => {
+      const data = {
+          title: title,
+          author: author,
+          price: price,
+          publishStart: publishStart,
+          publishEnd: publishEnd
+      }
+      const test = await GetIndexBooks(data);
   }
 
   const setTitleValue = (value) => { setTitle(value) }

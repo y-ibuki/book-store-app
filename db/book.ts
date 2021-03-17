@@ -1,10 +1,21 @@
 import firebase from "firebase/app";
 import 'firebase/firestore';
 
-export const GetIndexBooks = async () => {
+export const GetIndexBooks = async (data) => {
+    const title = String(data?.title)
+    const author = String(data?.author)
+    const price = String(data?.price)
+    const publishStart = String(data?.publishStart)
+    const publishEnd = String(data?.publishEnd)
+
     const db = await firebase.firestore()
-    const books = await db.collection('books').get()
-    return books
+    const books = await db.collection('books')
+    books.where('title', '==', title)
+    books.where('author', '==', author)
+    books.where('price', '==', price)
+    books.where('publishStart', '==', publishStart)
+    books.where('publishEnd', '==', publishEnd)
+    return books.get()
 }
 
 export const getBook = async (id: string) => {

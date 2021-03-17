@@ -12,7 +12,7 @@ const BookIndex = (props: TProps) => {
 
     useEffect( () => {
         const f = async () => {
-            const payload = await GetIndexBooks()
+            const payload = await GetIndexBooks({})
             return payload
         };
         const indexBooks = f()
